@@ -4,6 +4,9 @@
     <%= guess.first_number %>,
     <%= guess.second_number %>,
     <%= guess.third_number %>
+    <a href="/guesses/<%= guess.id %>">Details</a>
   </li>
 <% end %>
 </ul>
+
+<a href="/guesses/new">New Guess</a>

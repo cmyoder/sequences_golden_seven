@@ -21,4 +21,43 @@ class GuessesController < ApplicationController
 
     render("show.html.erb")
   end
+
+  def new_form
+
+    render("new_form.html.erb")
+  end
+
+  def create_row
+    @first = params[:first_number]
+    @second = params[:second_number]
+    @third = params[:third_number]
+
+    g = Guess.new
+    g.first_number = @first
+    g.second_number = @second
+    g.third_number = @third
+    g.save
+
+    redirect_to("/guesses")
+  end
+
+  def edit_form
+
+    id = params[:old_id]
+    g = Guess.find(id)
+
+    @first = g.first_number
+    @second = g.second_number
+    @third = g.third_number
+
+    render("edit_form.html.erb")
+  end
+
+  def update
+
+    
+
+
+    redirect_to("/guesses")
+  end
 end
